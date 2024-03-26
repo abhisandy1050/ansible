@@ -1,0 +1,13 @@
+---
+- hosts: midhtech
+  become: yes
+  tasks:
+    - name: Create file
+      ansible.builtin.file:
+        path: /home/vagrant/11.txt
+        state: touch
+    - name: creating another file
+      ansible.builtin.file:
+        path: /home/vagrant/12.txt
+        state: touch
+      
