@@ -4,5 +4,5 @@
   tasks:
     - name: Create file
       ansible.builtin.file:
-        path: /home/vagrant/6.txt
+        path: 22.txt
         state: touch
