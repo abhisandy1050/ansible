@@ -4,10 +4,5 @@
   tasks:
     - name: Create file
       ansible.builtin.file:
-        path: /home/vagrant/11.txt
+        path: /home/vagrant/6.txt
         state: touch
-    - name: creating another file
-      ansible.builtin.file:
-        path: /home/vagrant/12.txt
-        state: touch
-      
