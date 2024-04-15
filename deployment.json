@@ -1,0 +1,175 @@
+{
+  "id": "/subscriptions/20e611dc-b99d-4cc7-b6b8-11ca49d290f8/resourceGroups/NetworkWatcherRG/providers/Microsoft.Resources/deployments/Microsoft.Template-20240415150711",
+  "name": "Microsoft.Template-20240415150711",
+  "type": "Microsoft.Resources/deployments",
+  "properties": {
+    "templateLink": {
+      "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "templateHash": "2386182166504519146",
+    "parameters": {
+      "vmName": {
+        "type": "String",
+        "value": "simpleLinuxVM"
+      },
+      "adminUsername": {
+        "type": "String",
+        "value": "azure_admin"
+      },
+      "authenticationType": {
+        "type": "String",
+        "value": "sshPublicKey"
+      },
+      "adminPasswordOrKey": {
+        "type": "SecureString"
+      },
+      "dnsLabelPrefix": {
+        "type": "String",
+        "value": "simplelinuxvm-w44c32kshr4nw"
+      },
+      "ubuntuOSVersion": {
+        "type": "String",
+        "value": "Ubuntu-2004"
+      },
+      "location": {
+        "type": "String",
+        "value": "eastus"
+      },
+      "vmSize": {
+        "type": "String",
+        "value": "Standard_D2s_v3"
+      },
+      "virtualNetworkName": {
+        "type": "String",
+        "value": "vNet"
+      },
+      "subnetName": {
+        "type": "String",
+        "value": "Subnet"
+      },
+      "networkSecurityGroupName": {
+        "type": "String",
+        "value": "SecGroupNet"
+      },
+      "securityType": {
+        "type": "String",
+        "value": "TrustedLaunch"
+      }
+    },
+    "mode": "Incremental",
+    "debugSetting": {
+      "detailLevel": "None"
+    },
+    "provisioningState": "Running",
+    "timestamp": "2024-04-15T20:07:17.5022972Z",
+    "duration": "PT1.8339945S",
+    "correlationId": "fda0eb43-19aa-40a4-8831-58618ccbbcd4",
+    "providers": [
+      {
+        "namespace": "Microsoft.Network",
+        "resourceTypes": [
+          {
+            "resourceType": "networkInterfaces",
+            "locations": [
+              "eastus"
+            ]
+          },
+          {
+            "resourceType": "networkSecurityGroups",
+            "locations": [
+              "eastus"
+            ]
+          },
+          {
+            "resourceType": "virtualNetworks",
+            "locations": [
+              "eastus"
+            ]
+          },
+          {
+            "resourceType": "publicIPAddresses",
+            "locations": [
+              "eastus"
+            ]
+          }
+        ]
+      },
+      {
+        "namespace": "Microsoft.Compute",
+        "resourceTypes": [
+          {
+            "resourceType": "virtualMachines",
+            "locations": [
+              "eastus"
+            ]
+          },
+          {
+            "resourceType": "virtualMachines/extensions",
+            "locations": [
+              "eastus"
+            ]
+          }
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/20e611dc-b99d-4cc7-b6b8-11ca49d290f8/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkSecurityGroups/SecGroupNet",
+            "resourceType": "Microsoft.Network/networkSecurityGroups",
+            "resourceName": "SecGroupNet"
+          },
+          {
+            "id": "/subscriptions/20e611dc-b99d-4cc7-b6b8-11ca49d290f8/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/publicIPAddresses/simpleLinuxVMPublicIP",
+            "resourceType": "Microsoft.Network/publicIPAddresses",
+            "resourceName": "simpleLinuxVMPublicIP"
+          },
+          {
+            "id": "/subscriptions/20e611dc-b99d-4cc7-b6b8-11ca49d290f8/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/virtualNetworks/vNet",
+            "resourceType": "Microsoft.Network/virtualNetworks",
+            "resourceName": "vNet"
+          },
+          {
+            "id": "/subscriptions/20e611dc-b99d-4cc7-b6b8-11ca49d290f8/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/virtualNetworks/vNet",
+            "resourceType": "Microsoft.Network/virtualNetworks",
+            "resourceName": "vNet",
+            "apiVersion": "2023-09-01"
+          }
+        ],
+        "id": "/subscriptions/20e611dc-b99d-4cc7-b6b8-11ca49d290f8/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkInterfaces/simpleLinuxVMNetInt",
+        "resourceType": "Microsoft.Network/networkInterfaces",
+        "resourceName": "simpleLinuxVMNetInt"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/20e611dc-b99d-4cc7-b6b8-11ca49d290f8/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkInterfaces/simpleLinuxVMNetInt",
+            "resourceType": "Microsoft.Network/networkInterfaces",
+            "resourceName": "simpleLinuxVMNetInt"
+          }
+        ],
+        "id": "/subscriptions/20e611dc-b99d-4cc7-b6b8-11ca49d290f8/resourceGroups/NetworkWatcherRG/providers/Microsoft.Compute/virtualMachines/simpleLinuxVM",
+        "resourceType": "Microsoft.Compute/virtualMachines",
+        "resourceName": "simpleLinuxVM"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/20e611dc-b99d-4cc7-b6b8-11ca49d290f8/resourceGroups/NetworkWatcherRG/providers/Microsoft.Compute/virtualMachines/simpleLinuxVM",
+            "resourceType": "Microsoft.Compute/virtualMachines",
+            "resourceName": "simpleLinuxVM"
+          }
+        ],
+        "id": "/subscriptions/20e611dc-b99d-4cc7-b6b8-11ca49d290f8/resourceGroups/NetworkWatcherRG/providers/Microsoft.Compute/virtualMachines/simpleLinuxVM/extensions/GuestAttestation",
+        "resourceType": "Microsoft.Compute/virtualMachines/extensions",
+        "resourceName": "simpleLinuxVM/GuestAttestation"
+      }
+    ],
+    "validationLevel": "Template"
+  },
+  "tags": {
+    "marketplaceItemId": "Microsoft.Template"
+  }
+}
